@@ -1,0 +1,25 @@
+name: ML_env
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - tqdm
+  - omegaconf
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1  
+  - pip:
+    - transformers
+    - peft
+    - huggingface_hub
+    - joblib
+    - accelerate 
