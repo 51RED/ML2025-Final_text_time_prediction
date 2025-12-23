@@ -718,8 +718,8 @@ if __name__ == "__main__":
     print(f"THIS IS evaluation of {config.MODEL_NAME}.")
     print("="*70)
 
-    target = np.load(Path("checkpoints", f"{config.MODEL_NAME}_ICT.pth"))
-    target = target.astype(np.float32)
+    # target = np.load(Path("checkpoints", f"{config.MODEL_NAME}_ICT.pth"))
+    # target = target.astype(np.float32)
     device = get_device()
     test_data = joblib.load('test_data.pkl')
     X_test = test_data['X_test']
@@ -767,18 +767,18 @@ if __name__ == "__main__":
     # 手動移到 GPU
     finetuned_llm = finetuned_llm.to(device)
     # Apply LoRA
-    lora_config = LoraConfig(
-        task_type=TaskType.CAUSAL_LM,
-        r=config.LORA_R,
-        lora_alpha=config.LORA_ALPHA,
-        lora_dropout=config.LORA_DROPOUT,
-        target_modules=config.TARGET_MODULES,
-        bias="none"
-    )
+    # lora_config = LoraConfig(
+    #     task_type=TaskType.CAUSAL_LM,
+    #     r=config.LORA_R,
+    #     lora_alpha=config.LORA_ALPHA,
+    #     lora_dropout=config.LORA_DROPOUT,
+    #     target_modules=config.TARGET_MODULES,
+    #     bias="none"
+    # )
 
-    finetuned_llm = get_peft_model(finetuned_llm, lora_config)
-    print("\n✓ LoRA applied")
-    finetuned_llm.print_trainable_parameters()
+    # finetuned_llm = get_peft_model(finetuned_llm, lora_config)
+    # print("\n✓ LoRA applied")
+    # finetuned_llm.print_trainable_parameters()
 
     model_path = Path("checkpoints", f"llama_3.2_3B_ICT_{args.method}.pth")
     state_dict = torch.load(model_path, map_location=device)
