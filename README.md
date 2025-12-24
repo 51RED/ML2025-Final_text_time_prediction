@@ -32,11 +32,11 @@ python3 train.py -m generative
 python3 train.py -m regression
 ```
 
->📋  Describe how to train the models, with example commands on how to train the models in your paper, including the full training procedure and appropriate hyperparameters.
+>📋  Before trainning, make sure your data exist in "data" file. After trainning, model checkpoints will storage in file "checkpoints". The pre-trained model will be upload in cloud.
 
 ## Evaluation
 
-To evaluate my model on ?, run:
+To evaluate my model on regression, run:
 
 - generative
     ```eval
@@ -46,34 +46,49 @@ To evaluate my model on ?, run:
     ```eval
     python3 eval_regression.py -m regression
     ```
->📋  Describe how to evaluate the trained models on benchmarks reported in the paper, give commands that produce the results (section below).
+>📋  After trainning, there will be evaluation data, which split from training input data in "test data" and model checkpoint in "checkpoints" file. You need to make sure the data and model exist to run the evaluation.
 
 ## Pre-trained Models
 
-You can download pretrained models here:
+You can download pretrained models here, and you should put into "checkpoints" file:
 
-- [My awesome model](https://drive.google.com/mymodel.pth) trained on ImageNet using parameters x,y,z. 
+- [Fine-tuned Generative model(Llama-3.2-3B-Instruct)](https://drive.google.com/mymodel.pth) trained on Llama using LoRA to finetuned. 
 
->📋  Give a link to where/how the pretrained models can be downloaded and how they were trained (if applicable).  Alternatively you can have an additional column in your results table with a link to the models.
+
+- [Fine-tuned Regression model(Llama-3.2-3B-Instruct)](https://drive.google.com/mymodel.pth) trained on Llama using LoRA to finetuned. 
 
 ## Results
 
 Our model achieves the following performance on :
 
-### [Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
 
-| Model name         | Top 1 Accuracy  | Top 5 Accuracy |
-| ------------------ |---------------- | -------------- |
-| My awesome model   |     85%         |      95%       |
+| BERT-based models | ＭAE(min)| RSME(min)   | MAPE(%) |
+| -----|---------------- | --------- |-----------|
+| BERT+RF  |17.40 | 28.05 |50.72 |
+| BERT+MLP |16.89 | 27.49 |46.53 |
+| BERT+GBM |**16.20**|**25.62**|**46.28**|
 
->📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
+| LLM(Llama-3.2-3B-Instruct)-Generative | ＭAE(min)| RSME(min)   | MAPE(%) |
+| -----|---------------- | --------- |-----------|
+| Zero-shot  |48.17 | 61.84 |181.15 |
+| Few-shot |82.88 | 86.97 |383.22 |
+| Fine-tuned Gen |35.28|69.77|81.02|
+
+| LLM(Llama-3.2-Taiwan-3B-Instruct)-Generative | ＭAE(min)| RSME(min)   | MAPE(%) |
+| -----|---------------- | --------- |-----------|
+| Zero-shot  |21.86 | 36.58 |68.67 |
+| Few-shot |65.56 | 271.82 |204.35 |
+| Fine-tuned Gen |26.14|43.06|61.33|
+
+| LLM-Regression Head(Fine-tuned only) | ＭAE(min)| RSME(min)   | MAPE(%) |
+| -----|---------------- | --------- |-----------|
+| Llama-3.2-3B-Instruct + Reg |**15.84** | **32.93** |38.50 |
+| Llama-3.2-Taiwan-3B-Instruct + Reg |18.05 | 35.26 |**35.87** |
+
 
 
 ## Contributing
 
->📋  Pick a licence and describe how to contribute to your code repository. 
-
-## License
 - **Code**: This repository is licensed under the [MIT License](LICENSE).
 - **Model Weights**: The model weights are derived from [Meta Llama 3](https://llama.meta.com/) and are subject to the [Llama 3 Community License Agreement](https://llama.meta.com/llama3/license/).
 
