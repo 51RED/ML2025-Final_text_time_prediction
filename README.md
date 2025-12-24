@@ -12,6 +12,7 @@ To install requirements:
 
 ```setup
 git clone https://github.com/51RED/ML2025-Final_text_time_prediction.git
+
 cd ML2025-Final_text_time_prediction
 
 conda env create -f environment.yml

@@ -721,7 +721,7 @@ if __name__ == "__main__":
     # target = np.load(Path("checkpoints", f"{config.MODEL_NAME}_ICT.pth"))
     # target = target.astype(np.float32)
     device = get_device()
-    test_data = joblib.load('test_data.pkl')
+    test_data = joblib.load(Path('test_data','generative_test_data.pkl'))
     X_test = test_data['X_test']
     y_test = test_data['y_test']
     X_train = test_data['X_train']
