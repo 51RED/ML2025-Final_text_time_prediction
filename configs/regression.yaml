@@ -18,5 +18,4 @@ LEARNING_RATE : 1e-4
 WEIGHT_DECAY : 0.01
 MAX_LENGTH : 512
 
-MODEL_TOKEN : "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"
-# MODEL_TOKEN = "Put your own token"
+MODEL_TOKEN : "Put your own token"
