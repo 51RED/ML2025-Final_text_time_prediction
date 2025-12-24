@@ -1,10 +1,8 @@
->📋  A template README.md for code accompanying a Machine Learning paper
 
-# My Paper Title
+# Predicting FREEWAY INCIDENT CLEARANCE TIME from chinese text reports: A comparison of BERT and LLMs
 
-This repository is the official implementation of [My Paper Title](https://arxiv.org/abs/2030.12345). 
+This repository is the official implementation of [Predicting FREEWAY INCIDENT CLEARANCE TIME from chinese text reports: A comparison of BERT and LLMs](https://openreview.net/forum?id=hiGT14xrSa&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3Dntu.edu.tw%2FNational_Taiwan_University%2FFall_2025%2FML-MiniConf%2FAuthors%23your-submissions)). 
 
->📋  Optional: include a graphic explaining your approach/main result, bibtex entry, link to demos, blog posts and tutorials
 
 ## Requirements
 
