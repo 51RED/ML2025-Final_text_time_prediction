@@ -67,8 +67,8 @@ Our model achieves the following performance on :
 | BERT+GBM |**16.20**|**25.62**|**46.28**|
 
 | LLM(Llama-3.2-3B-Instruct)-Generative | ＭAE(min)| RSME(min)   | MAPE(%) |
-| -----|---------------- | --------- |-----------|
-| Zero-shot  |48.17 | 61.84 |181.15 |
+| -----|------- | ------- |--------|
+| Zero-shot|48.17 | 61.84 |181.15 |
 | Few-shot |82.88 | 86.97 |383.22 |
 | Fine-tuned Gen |35.28|69.77|81.02|
 
